@@ -1,4 +1,4 @@
-opencv-python==4.1.2.30
+opencv-python==4.5.5.64
 torch 
 torchvision 
 ninja==1.10.2.3
