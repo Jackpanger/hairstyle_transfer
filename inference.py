@@ -71,6 +71,6 @@ def run_inference(tool, args):
 if __name__ == '__main__':
     args = parse_args()
     print(f'All done')
-    tool = Tool(opts=None, result_path='./data/results/', checkpoint_path='./drive/MyDrive/model/best_model.pt')
+    tool = Tool(opts=None, result_path='./data/results/', checkpoint_path='/content/drive/MyDrive/model/best_model.pt')
     paths_to_results =run_inference(tool, args)
     print(f'Results saved as: {paths_to_results}')
