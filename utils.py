@@ -259,7 +259,7 @@ def align_face_npy_with_params(img, output_size=1024, return_none_with_no_face =
     shrink = int(np.floor(qsize / output_size * 0.5))
     if shrink > 1:
         rsize = (int(np.rint(float(img.size[0]) / shrink)), int(np.rint(float(img.size[1]) / shrink)))
-        img = img.resize(rsize, PIL.Image.ANTIALIAS)
+        img = img.resize(rsize, PIL.Image.LANCZOS)
         quad /= shrink
         qsize /= shrink
 
@@ -297,7 +297,7 @@ def align_face_npy_with_params(img, output_size=1024, return_none_with_no_face =
     # # Transform.
     img = img.transform((transform_size, transform_size), PIL.Image.QUAD, (quad + 0.5).flatten(), PIL.Image.BILINEAR)
     if output_size < transform_size:
-        img = img.resize((output_size, output_size), PIL.Image.ANTIALIAS)
+        img = img.resize((output_size, output_size), PIL.Image.LANCZOS)
 
     # Save aligned image.
     return np.array(img), [shrink, actual_crop, actual_padding, quad, padded_img, shrunk_image]
