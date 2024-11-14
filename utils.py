@@ -185,7 +185,7 @@ def torch_to_numpy_uint8(x, correct_range = False):
 
 from PIL import Image
 import dlib
-predictor = dlib.shape_predictor('../drive/MyDrive/model/shape_predictor_68_face_landmarks.dat')
+predictor = dlib.shape_predictor('./drive/MyDrive/model/shape_predictor_68_face_landmarks.dat')
 def get_landmark_npy(img, return_none_with_no_face = False):
     """get landmark with dlib
         :return: np.array shape=(68, 2)
