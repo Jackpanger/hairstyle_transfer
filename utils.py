@@ -88,6 +88,7 @@ def load_and_split_image(path, return_mask = False):
         else:
             inner_f_im, hair_im, mask = split_image(img, return_mask)
         imageio.imwrite(hair_path_with_filename, hair_im)
+        print(inner_f_im)
         imageio.imwrite(face_path_with_filename, inner_f_im)
 
     if return_mask:
