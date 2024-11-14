@@ -131,8 +131,9 @@ class Tool:
                     if im_mask.shape[0] < 1024:
                         im_mask = cv2.resize(im_mask, (1024, 1024))
                     masked_output = utils.alpha_blend_images(img_generated, img_original, im_mask)
-                    # print(f"Range of masked output: [{masked_output.min()}, {masked_output.max()}]")
+                    print(f"Range of masked output: [{masked_output.min()}, {masked_output.max()}]")
                     # masked_output = (masked_output * 255).astype(np.uint8) if masked_output.dtype == np.float64 else masked_output
+                    masked_output = masked_output.astype(np.uint8)
                     imageio.imwrite(blended_name, masked_output)
                 imageio.imwrite(nonblended_name, img_generated)
 
