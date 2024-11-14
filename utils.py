@@ -10,7 +10,7 @@ import numpy as np
 from face_alignment import FaceAlignment, LandmarksType
 
 
-fa = FaceAlignment(LandmarksType._2D, device='cuda:0')
+fa = FaceAlignment(LandmarksType.TWO_D, device='cuda:0')
 
 def alpha_blend_images(generated_image, real_image, mask ):
     im_out = ((mask) * real_image + (1-mask) * generated_image)
