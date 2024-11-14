@@ -7,7 +7,7 @@ import utils, os, torch, imageio, numpy as np, cv2, string, pickle as pkl
 
 class Tool:
 
-    def __init__(self, opts=None, result_path='./data/results/', checkpoint_path='./best_model.pt'):
+    def __init__(self, opts=None, result_path='./data/results/', checkpoint_path='../drive/MyDrive/model/best_model.pt'):
         if opts is None:
             self.opts = Namespace()
             self.opts.input_nc = 3
@@ -237,7 +237,7 @@ class Tool:
                 else:
                     inner_face1, hair1 = utils.load_and_split_image(im1_path)
             im1_orig = inner_face1 + hair1
-            with open('./latent_directions.pkl', 'rb') as (f):
+            with open('../drive/MyDrive/model/latent_directions_hair_space.pkl', 'rb') as (f):
                 directions = pkl.load(f)
             latent_dir = directions[direction_name]
             inner_face1_t = utils.numpy_uint8_to_torch(inner_face1.astype(np.uint8))
