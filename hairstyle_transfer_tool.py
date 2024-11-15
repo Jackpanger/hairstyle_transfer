@@ -115,8 +115,7 @@ class Tool:
             input_face = utils.numpy_uint8_to_torch(inner_face2.astype(np.uint8))
             input_hair = utils.numpy_uint8_to_torch(hair1.astype(np.uint8))
             if alpha_blend:
-                masks = [
-                 mask2]
+                masks = [mask2]
                 im_orig = [im2_orig]
             output = self.net.forward(input_face, input_hair, resize=False)
             output_images = output.cpu()
